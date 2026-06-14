@@ -29,8 +29,8 @@
 
 **推荐编译工具**
 
-* TeX Live 2020+ / MacTeX
-* 编辑器：TeXstudio、VS Code + LaTeX Workshop、Overleaf
+* 在Windows系统使用TeX Live 2018测试可以编译成功。
+
 
 ## 📁 项目文件结构
 
@@ -48,11 +48,13 @@ NPUBeamer/
 
 ## 💻 开源字体下载与配置（必需）
 
-本模板所有字体均采用开源字体，严格遵循官方下载方式，安装后才可正常编译显示字体样式。所有字体文件统一放入项目根目录 `font/` 文件夹。
+本模板所有字体均采用开源字体，请遵循官方下载方式，安装后才可正常编译显示字体样式。所有字体文件统一放入项目根目录 `font/` 文件夹。
 
 **1. 思源黑体 / 思源宋体**
 
 下载地址：[https://github.com/adobe-fonts/source-han-sans/tree/release#region-specific-subset-otfs](https://github.com/adobe-fonts/source-han-sans/tree/release#region-specific-subset-otfs)
+
+下载地址：[https://github.com/adobe-fonts/source-han-serif/tree/release#region-specific-subset-otfs](https://github.com/adobe-fonts/source-han-serif/tree/release#region-specific-subset-otfs)
 
 操作方式：打开页面后点击 `China (中国)` 对应资源下载，解压后将所有 `.otf` 格式字体文件放入 `font` 文件夹。
 
@@ -115,5 +117,4 @@ NPUBeamer/
 
 如果本模板对你的学术汇报、课程答辩有帮助，欢迎点亮 Star，你的支持是项目持续更新的动力！
 
-> （注：文档部分内容可能由 AI 生成）
 
