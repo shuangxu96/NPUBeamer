@@ -1,0 +1,388 @@
+
+\input{src/NPUBeamer}
+% ==============================================
+% 全局文本变量
+% ==============================================
+\newcommand{\ReportTitle}{\texttt{NPUBeamer}模板}
+\newcommand{\ReportAuthor}{徐爽}
+\newcommand{\ReportInstitute}{西北工业大学数学与统计学院}
+\newcommand{\ReportTime}{2026年06月14日·西安}
+
+
+% ===================== 正文开始（综合功能测试） =====================
+\begin{document}
+
+% 封面页
+\maketitlepage
+% 目录页
+\mytocpage
+
+
+\section{字体测试}
+
+
+\begin{frame}{字体家族}
+\begin{table}
+\caption{字体家族（Font Family）设置}
+\resizebox{0.8\linewidth}{!}{
+\begin{tabular}{cccc}
+\toprule
+     & 无衬线字体   & 衬线字体 & 等宽字体 \\ \midrule
+中文     & 思源黑体 &  \textrm{思源宋体} & \texttt{霞鹜文楷}\\ 
+英文     & TeX Gyre Heros   & \textrm{TeX Gyre Termes} & \texttt{Source Code Pro}\\  \midrule
+中文加粗 & \textbf{思源黑体} &  \textbf{\textrm{思源宋体}} & \textbf{\texttt{霞鹜文楷}}\\ 
+英文加粗 & \textbf{TeX Gyre Heros}   & \textbf{\textrm{TeX Gyre Termes}} & \textbf{\texttt{Source Code Pro}}\\  \midrule
+中文斜体 & \textit{思源黑体} &  \textit{\textrm{思源宋体}} & \textit{\texttt{霞鹜文楷}}\\ 
+英文斜体 & \textit{TeX Gyre Heros}   & \textit{\textrm{TeX Gyre Termes}} & \textit{\texttt{Source Code Pro}}\\  \midrule
+中文加粗斜体 & \textbf{\textit{思源黑体}} &  \textbf{\textit{\textrm{思源宋体}}} & \textbf{\textit{\texttt{霞鹜文楷}}}\\ 
+英文加粗斜体 & \textbf{\textit{TeX Gyre Heros}}   & \textbf{\textit{\textrm{TeX Gyre Termes}}} & \textbf{\textit{\texttt{Source Code Pro}}}\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{字体下载}
+思源黑体：\url{https://github.com/adobe-fonts/source-han-sans/tree/release#region-specific-subset-otfs}。
+
+\textrm{思源宋体}：\url{https://github.com/adobe-fonts/source-han-serif/tree/release#region-specific-subset-otfs}。
+
+在上面两个页面中点击``China (中国)''进行下载，解压后把所有的\texttt{otf}文件放在\texttt{font}文件夹内。
+
+霞鹜文楷：在页面\url{https://github.com/lxgw/LxgwWenKai/releases}中选择``Source code
+(zip)''进行下载，解压后把所有的\texttt{ttf}文件放在\texttt{font}文件夹内。
+
+Source Code Pro：在页面\url{https://github.com/adobe-fonts/source-code-pro/releases/latest}中选择\texttt{otf}对应的压缩包进行下载，解压后把所有的\texttt{otf}文件放在\texttt{font}文件夹内。
+\end{frame}
+
+\begin{frame}{普通文本测试}
+    该模板的作者为徐爽\footnote{个人主页为\url{https://teacher.nwpu.edu.cn/shuangxu}。}，可以适配日常教学和学术报告场景。本模板的部分设计参考了\texttt{dhuBeamer}\footnote{\url{https://github.com/3000ye/dhuBeamer}。}\texttt{和HiBeamer}\footnote{\url{https://github.com/YLXDXX/hibeamer}。}。
+
+    本模板的默认字号20pt、1.3倍行距。
+
+\end{frame}
+
+\begin{frame}{minipage双栏排版测试}
+
+如果希望minipage首行缩进2个字符，那么需要在环境内先进行设置\texttt{\setlength{\parindent}{2em}}：
+
+
+\begin{minipage}{0.48\textwidth}
+    \setlength{\parindent}{2em}
+    这是左栏文字。这是左栏文字。这是左栏文字。
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+    \setlength{\parindent}{2em}
+    这是右栏文字。这是右栏文字。这是右栏文字。
+\end{minipage}
+
+
+下面是没有设置的效果：
+
+
+\begin{minipage}{0.48\textwidth}
+    这是左栏文字。这是左栏文字。这是左栏文字。
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+    这是右栏文字。这是右栏文字。这是右栏文字。
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{framebreak测试}
+测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+\framebreak
+测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测
+\framebreak
+试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+\end{frame}
+
+% ========== 第二部分：有序列表 + 区块环境 ==========
+\section{列表环境}
+\begin{frame}{有序列表测试}
+    \begin{enumerate}
+        \item 有序条目一
+        \item 有序条目二
+            \begin{enumerate}
+                \item 子有序条目1
+                \item 子有序条目2
+                    \begin{enumerate}
+                        \item 孙有序条目1
+                        \item 孙有序条目2
+                    \end{enumerate}
+            \end{enumerate}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{无序列表测试}
+    \begin{itemize}
+        \item 有序条目一
+        \item 有序条目二
+            \begin{itemize}
+                \item 子有序条目1
+                \item 子有序条目2
+                    \begin{itemize}
+                        \item 孙有序条目1
+                        \item 孙有序条目2
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\section{区块和定理环境}
+\begin{frame}
+    \frametitle{Block 区块样式测试}
+    \begin{block}{标准区块标题}
+        这是普通 Block 内容区域，测试区块底色与标题配色。
+    \end{block}
+
+    \begin{block}{第二个区块}
+        多区块共存测试，验证间距与样式一致性。
+    \end{block}
+
+    \begin{exampleblock}{举例区块标题}
+        这是 ExampleBlock 内容区域，测试区块底色与标题配色。
+    \end{exampleblock}
+
+    \begin{exampleblock}{第二个区块}
+        多区块共存测试，验证间距与样式一致性。
+    \end{exampleblock}
+
+    \begin{alertblock}{警示区块标题}
+        这是 AlertBlock 内容区域，测试区块底色与标题配色。
+    \end{alertblock}
+
+    \begin{alertblock}{第二个区块}
+        多区块共存测试，验证间距与样式一致性。
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{定理环境}
+\begin{theorem}[标题]
+内容
+\end{theorem}
+\begin{lemma}[标题]
+内容
+\end{lemma}
+\begin{definition}[标题]
+内容
+\end{definition}
+\begin{corollary}[标题]
+内容
+\end{corollary}
+\begin{proposition}[标题]
+内容
+\end{proposition}
+\begin{remark}[标题]
+内容
+\end{remark}
+\begin{example}[标题]
+内容
+\end{example}
+\begin{exercise}[标题]
+内容
+\end{exercise}
+\end{frame}
+
+
+% ========== 第三部分：数学公式 ==========
+\section{公式}
+\begin{frame}[allowframebreaks]{公式环境全测试}
+\textbf{1. 行内公式}
+实数域满足 $a+b=b+a$，基本不等式 $x^2+y^2 \ge 2xy$。
+
+\vspace{1em}
+\textbf{2. 行间无编号公式 \texttt{equation*}}
+\begin{equation*}
+f(x) = \sin x + \cos x + e^x - \ln x
+\end{equation*}
+
+\vspace{1em}
+\textbf{3. 单行有编号 \texttt{equation}}
+\begin{equation}
+\lim_{x\to+\infty} \frac{\sqrt{x^2+1}}{x} = 1
+\end{equation}
+
+\vspace{1em}
+\textbf{4. 多行对齐 \texttt{align}}
+\begin{align}
+u_t &= a^2 u_{xx} \\
+u(0,t) &= 0 \\
+u(x,0) &= \varphi(x)
+\end{align}
+
+\vspace{1em}
+\textbf{5. 分段函数 \texttt{cases}}
+\[
+f(x) =
+\begin{cases}
+x^2, & x\ge 0, \\
+-x,  & x<0.
+\end{cases}
+\]
+
+\vspace{1em}
+\textbf{6. 矩阵 / 行列式}
+\[
+A=
+\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix},\quad
+|B|=
+\begin{vmatrix}
+\alpha & \beta \\
+\gamma & \delta
+\end{vmatrix}
+\]
+
+\vspace{1em}
+\textbf{7. 求和、积分、乘积}
+\[
+\sum_{k=1}^n k = \dfrac{n(n+1)}{2},\quad
+\int_0^{+\infty} e^{-x}\,\mathrm{d}x = 1,\quad
+\prod_{i=1}^m (1+x_i)
+\]
+
+\vspace{1em}
+\textbf{8. 集合、逻辑符号}
+\[
+x\in \mathbb{R},\quad A\subset B,\quad
+\forall x,\ \exists y,\quad
+p \implies q
+\]
+
+\vspace{1em}
+\textbf{9. 定理环境内嵌公式}
+
+\begin{theorem}[均值不等式]
+设 $a_1,a_2,\dots,a_n>0$，则
+\[
+\frac{a_1+a_2+\cdots+a_n}{n}
+\ge \sqrt[n]{a_1a_2\cdots a_n}.
+\]
+\end{theorem}
+
+\textbf{10. 公式内中文}
+
+$$x是自变量$$
+
+\end{frame}
+
+
+
+% ========== 第四部分：图片与图文布局 ==========
+\section{图表测试}
+\begin{frame}
+    \frametitle{单张图片展示}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{src/figure/titlepage_cover.jpg}
+    \caption{示例图片}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{多张图片展示}
+    \begin{figure}[htbp]
+        \centering
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{src/figure/titlepage_cover.jpg}
+            \caption{图片1}
+        \end{minipage}
+        \begin{minipage}[t]{0.48\textwidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{src/figure/titlepage_cover.jpg}
+            \caption{图片2}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{表格}
+    \begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        Mercedes & S 450 & 3.0T \\ \hline
+        BMW & M760 Li & 4.4T \\ \hline
+        Audi & Rs 6 Avant & 4.0T \\ \hline
+    \end{tabular}
+    \caption{示例表格}
+    \end{table}
+\end{frame}
+
+\begin{frame}[fragile]{lstlisting环境}
+
+\begin{lstlisting}[language=TeX]
+\begin{itemize}
+  \item A \item B
+  \item C
+  \begin{itemize}
+    \item C-1
+  \end{itemize}
+\end{itemize}
+\end{lstlisting}
+
+\end{frame}
+
+
+
+\begin{frame}{测试算法排版}
+  \begin{algorithm}[H]
+    \caption{测试算法}
+    \begin{algorithmic}[1]
+      % 注意：这里使用原生首字母大写的 \Require 和 \Ensure
+      \Require 数组 $A$
+      \Ensure 排序后的数组 $A$
+      \If{$A$ 为空}
+        \State \Return $A$
+      \EndIf
+      \For{$i \gets 1$ 到 $n$}
+        \State 处理 $A[i]$
+      \EndFor
+    \end{algorithmic}
+  \end{algorithm}
+\end{frame}
+
+
+
+
+\section{逐帧展示}
+\begin{frame}{pause测试}
+    \begin{itemize} 
+        \item 大家都会\LaTeX{}，好多学校都有自己的Beamer主题 \pause
+        \item 中文支持请选择 Xe\LaTeX{} 编译选项
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{href超链接与url网址}
+
+\href{http://far.tooold.cn/post/latex/beamertsinghua}{\color{purple}{链接}}
+
+\url{https://www.latexstudio.net/archives/4051.html}
+
+\end{frame}
+
+
+
+\begin{frame}{参考文献测试}
+引用\cite{pwrctv_tgrs2024}，引用\cite{balmf2022_tgrs}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{参考文献}
+\fontsize{0.0369\PageHeight}{0.0369\PageHeight}\selectfont
+\bibliographystyle{unsrt}   % 样式
+\bibliography{ref}          % bibtex文件
+\end{frame}
+
+
+
+\end{document}
+

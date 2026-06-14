@@ -1,0 +1,425 @@
+\newlength{\PageHeight}
+\newlength{\PageWidth}
+% ==============================================
+% 一、基础框架 & 页面布局
+% ==============================================
+%\documentclass[17pt]{beamer}
+%\setlength{\PageHeight}{13.5cm}
+%\setlength{\PageWidth}{24cm} 
+
+\documentclass[20pt]{beamer}
+\setlength{\PageHeight}{19.05cm}
+\setlength{\PageWidth}{33.866cm} 
+
+% 设置页面边距变量为长度寄存器
+\newlength{\PageLeft}
+\newlength{\PageRight}
+\newlength{\PageTop}
+\newlength{\PageBottom}
+
+\setlength{\PageLeft}{0.10498\PageHeight}
+\setlength{\PageRight}{0.10498\PageHeight} 
+\setlength{\PageTop}{0.07874\PageHeight} 
+\setlength{\PageBottom}{0.10498\PageHeight}
+
+% 自定义宽屏尺寸
+\usepackage{geometry}
+\geometry{
+    paperwidth=\PageWidth,
+    paperheight=\PageHeight,
+    left=\PageLeft, right=\PageRight,
+    top=\PageTop, bottom=\PageBottom
+}
+
+% 关闭默认导航、侧边栏、页眉
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{sidebar left}{}
+\setbeamertemplate{sidebar right}{}
+
+% 全局背景
+\pagecolor{white}
+
+% ==============================================
+% 二、宏包加载（按依赖顺序）
+% ==============================================
+% 中日英字体 & 数学字体（XeLaTeX 专用顺序）
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\xeCJKsetup{CJKmath=true} % 支持公式内中文
+\usepackage{unicode-math}
+
+% 图形、颜色、绘图
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{backgrounds}
+\usepackage{float}
+
+% 表格
+\usepackage{booktabs, multirow, bigstrut}
+
+% 数学环境
+\usepackage{amsfonts, amsmath, amsthm}
+\usepackage{amssymb,bm,mathrsfs} % 数学符号支持
+
+
+% 算法
+\usepackage{algorithm, algpseudocode}
+
+% 代码高亮
+\usepackage{listings}
+
+% 图表子图 & 标题
+\usepackage{caption, subcaption}
+
+% 多栏排版
+\usepackage{multicol}
+
+% ==============================================
+% 三、全局段落格式
+% ==============================================
+\linespread{1.3}                 % 行距
+\setlength{\parindent}{2em}      % 首行缩进
+\BeforeBeginEnvironment{minipage}{\noindent}
+\setlength{\parskip}{0.5\baselineskip}  % 段后0.5行
+% ==============================================
+% 四、字体配置（思源系列 + 英文字体）
+% ==============================================
+% 中文无衬线字体（思源黑体）
+\setCJKsansfont[
+    Path              = ./font/,
+    Extension         = .otf,
+    UprightFont       = SourceHanSansCN-Regular,
+    BoldFont          = SourceHanSansCN-Bold,
+    ItalicFont        = SourceHanSansCN-Regular,
+    BoldItalicFont    = SourceHanSansCN-Bold,
+    AutoFakeBold      = false,
+    ItalicFeatures    = {FakeSlant = 0.15},
+    BoldItalicFeatures= {FakeSlant = 0.15},
+    Mapping           = fullwidth-stop% 把中文句号自动转化英文小圆点
+]{}
+% \setCJKsansfont{Microsoft YaHei} % 也可替换为微软雅黑（但需注意版权问题）
+
+% 中文衬线字体（思源宋体）
+\setCJKmainfont[
+    Path              = ./font/,
+    Extension         = .otf,
+    UprightFont       = SourceHanSerifCN-Regular,
+    BoldFont          = SourceHanSerifCN-Bold,
+    ItalicFont        = SourceHanSerifCN-Regular,
+    BoldItalicFont    = SourceHanSerifCN-Bold,
+    AutoFakeBold      = false,
+    ItalicFeatures    = {FakeSlant = 0.15},
+    BoldItalicFeatures= {FakeSlant = 0.15},
+    Mapping           = fullwidth-stop% 把中文句号自动转化英文小圆点
+]{}
+%\setCJKmainfont{SimSun} % 也可替换为宋体（但需注意版权问题）
+
+% 中文等宽字体（霞鹜文楷）
+\setCJKmonofont[
+    Path              = ./font/,
+    Extension         = .ttf,
+    UprightFont       = LXGWWenKaiMono-Regular,
+    BoldFont          = LXGWWenKaiMono-Medium,
+    ItalicFont        = LXGWWenKaiMono-Regular,
+    BoldItalicFont    = LXGWWenKaiMono-Medium,
+    AutoFakeBold      = false,
+    ItalicFeatures    = {FakeSlant = 0.15},
+    BoldItalicFeatures= {FakeSlant = 0.15},
+    Mapping           = fullwidth-stop% 把中文句号自动转化英文小圆点
+]{}
+%\setCJKmonofont{KaiTi} % 也可替换为楷体（但需注意版权问题）
+
+% 英文字体
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmathfont{TeX Gyre Termes Math} % 或选择 Latin Modern Math
+\setmonofont[
+    Path              = ./font/,
+    Extension         = .otf,
+    UprightFont       = SourceCodePro-Regular,
+    BoldFont          = SourceCodePro-Bold,
+    ItalicFont        = SourceCodePro-It,
+    BoldItalicFont    = SourceCodePro-BoldIt,
+    AutoFakeBold      = false
+]{}
+%\setmonofont{TeX Gyre Cursor} %等宽也可以替换成这个字体
+
+
+% ==============================================
+% 五、全局色彩定义
+% ==============================================
+\definecolor{NPUBlue}{RGB}{0,78,162}
+\definecolor{NPUDarkBlue}{RGB}{0,51,102}
+\definecolor{ExampleGreen}{RGB}{0,128,64}
+\definecolor{AlertOrange}{RGB}{204,102,0}
+\definecolor{LightTea}{RGB}{245,241,236}
+
+% ==============================================
+% 六、Beamer 全局颜色样式
+% ==============================================
+% 列表符号颜色
+\setbeamercolor{item}{fg=NPUBlue}
+\setbeamercolor{subitem}{fg=NPUBlue}
+\setbeamercolor{subsubitem}{fg=NPUBlue}
+\setbeamercolor{enumerate item}{fg=NPUBlue}
+
+% 各级标题颜色
+\setbeamercolor{frametitle}{fg=NPUBlue}
+\setbeamercolor{framesubtitle}{fg=NPUBlue}
+\setbeamercolor{section title}{fg=NPUBlue}
+\setbeamercolor{subsection title}{fg=NPUBlue}
+
+% 线条、脚注、标签
+\setbeamercolor{separation line}{fg=NPUBlue}
+\setbeamercolor{footnote}{fg=NPUBlue}
+\setbeamercolor{label}{fg=NPUBlue}
+
+% 图表标题汉化 + 颜色
+\renewcommand{\figurename}{图：}
+\renewcommand{\tablename}{表：}
+\captionsetup{labelfont = {color=NPUBlue}, labelsep=space}
+
+% 参考文献样式与颜色
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography item}{fg=NPUBlue}
+\setbeamercolor{bibliography entry author}{fg=NPUBlue}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=NPUBlue!60}
+
+% ==============================================
+% 七、区块环境（块、定理、定义、示例、警示等）
+% ==============================================
+% 基础区块外观：圆角、无阴影、标题加粗
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamerfont{block title}{series=\bfseries}
+
+% 基础区块配色
+\setbeamercolor{block title}{fg=white, bg=NPUBlue}
+\setbeamercolor{block body}{fg=black, bg=NPUBlue!10}
+
+% 示例区块（绿色）
+\renewenvironment{exampleblock}[1]
+{%
+  \setbeamercolor{block title}{fg=white, bg=ExampleGreen}
+  \setbeamercolor{block body}{fg=black, bg=ExampleGreen!10}
+  \begin{block}{#1}
+}
+{\end{block}}
+
+% 警示区块（橙色）
+\renewenvironment{alertblock}[1]
+{%
+  \setbeamercolor{block title}{fg=white, bg=AlertOrange}
+  \setbeamercolor{block body}{fg=black, bg=AlertOrange!10}
+  \begin{block}{#1}
+}
+{\end{block}}
+
+% 定理、引理、推论、命题
+\renewenvironment{theorem}[1][]{\begin{block}{定理\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+\renewenvironment{lemma}[1][]{\begin{block}{引理\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+\renewenvironment{corollary}[1][]{\begin{block}{推论\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+\newenvironment{proposition}[1][]{\begin{block}{命题\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+
+% 定义（青色系）
+\renewenvironment{definition}[1][]{
+    \setbeamercolor{block title}{bg=cyan!70!black, fg=white}
+    \setbeamercolor{block body}{bg=cyan!5}
+    \begin{block}{定义\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+
+% 例子
+\renewenvironment{example}[1][]{\begin{exampleblock}{例子\ifx\relax#1\relax\else：#1\fi}}{\end{exampleblock}}
+
+% 习题（紫色系）
+\newenvironment{exercise}[1][]{
+    \setbeamercolor{block title}{bg=purple!70!black, fg=white}
+    \setbeamercolor{block body}{bg=purple!5}
+    \begin{block}{习题\ifx\relax#1\relax\else：#1\fi}}{\end{block}}
+
+% 注记（复用警示块）
+\newenvironment{remark}[1][]{\begin{alertblock}{注记\ifx\relax#1\relax\else：#1\fi}}{\end{alertblock}}
+
+% ==============================================
+% 八、代码 & 算法样式
+% ==============================================
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    showstringspaces=false
+}
+
+\renewcommand{\algorithmname}{算法}
+\algrenewcommand\algorithmicrequire{\textbf{输入:}}
+\algrenewcommand\algorithmicensure{\textbf{输出:}}
+\algrenewcommand\algorithmicreturn{\textbf{返回}}
+
+% ==============================================
+% 九、帧标题 自定义顶部栏
+% ==============================================
+
+\makeatletter
+\setbeamertemplate{frametitle}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, inner sep=0pt]
+        at ([yshift=-0.01994\PageHeight, xshift=0]current page.north west)
+        {\includegraphics[height=0.0944\PageHeight]{src/figure/frametitle_logo.jpg}\hspace{0.01049\PageHeight}};
+    \node[anchor=north west, inner sep=0pt]
+        at ([yshift=-0.04094\PageHeight, xshift=0.10498\PageHeight]current page.north west)
+        {\fontsize{0.06641\PageHeight}{0.07379\PageHeight}\bfseries\color{NPUBlue}\insertframetitle};
+  \end{tikzpicture}
+}
+\makeatother
+
+% ==============================================
+% 十、底部蓝色通栏页脚
+% ==============================================
+\setbeamertemplate{footline}{
+    \newdimen\FootNoteMargin
+    \FootNoteMargin=\PageTop
+    \advance\FootNoteMargin by 0.05249\PageHeight
+  \begin{overlayarea}{\paperwidth}{\the\FootNoteMargin}
+    \usebeamertemplate***{footline rule}
+    \usebeamertemplate***{footnote text}
+  \end{overlayarea}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \begin{pgfonlayer}{background}
+      \fill[NPUBlue]
+        (current page.south west) rectangle
+        ([yshift=0.03779\PageHeight]current page.south east);
+    \end{pgfonlayer}
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \tikzset{foottext/.style={font=\fontsize{0.02213\PageHeight}{0.02213\PageHeight}\selectfont\color{white}, inner sep=0pt}}
+    \node[foottext, anchor=west]
+      at ([xshift=0.10498\PageHeight, yshift=0.01889\PageHeight]current page.south west)
+      {\ReportAuthor (\ReportInstitute)};
+    \node[foottext, anchor=center]
+      at ([yshift=0.01889\PageHeight]current page.south)
+      {\ReportTitle};
+    \node[foottext, anchor=east]
+      at ([xshift=-0.10498\PageHeight, yshift=0.01889\PageHeight]current page.south east)
+      {\insertframenumber\ / \inserttotalframenumber};
+  \end{tikzpicture}
+}
+
+
+
+% ==============================================
+% 十二、自定义页面命令：封面页、目录页
+% ==============================================
+% 封面标题页
+\newcommand{\maketitlepage}{
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=north west, inner sep=0pt]
+                at ([xshift=0.10498\PageHeight, yshift=-0.05498\PageHeight]current page.north west)
+                {\includegraphics[width=0.47244\PageHeight]{src/figure/logo_main.png}};
+			\node[anchor=south, inner sep=0pt]
+                at (current page.south)
+                {\includegraphics[width=\paperwidth]{src/figure/titlepage_cover.jpg}};
+            \node[align=center, font=\Large, black]
+                at (current page.center) {
+                    {\fontsize{0.06642\PageHeight}{0.06642\PageHeight}\bfseries\color{NPUBlue} \ReportTitle     }\\[0.07874\PageHeight]
+                    {\fontsize{0.04797\PageHeight}{0.04797\PageHeight}\bfseries                \ReportAuthor    }\\[0.0005\PageHeight]
+                    {\fontsize{0.04797\PageHeight}{0.04797\PageHeight}\bfseries                \ReportInstitute }\\[0.02199\PageHeight]
+                    {\fontsize{0.03321\PageHeight}{0.03321\PageHeight}\selectfont              \ReportTime      }
+                };
+        \end{tikzpicture}
+    \end{frame}
+}
+
+% 目录样式：方形编号
+\defbeamertemplate{section in toc}{customsquare}{%
+  \raisebox{-0.2\height}{%
+    \begin{tikzpicture}
+      \node[
+        fill=NPUBlue,
+        minimum size=1cm,
+        inner sep=0pt,
+        outer sep=0pt,
+        align=center,
+        text=LightTea
+      ] {\inserttocsectionnumber};
+    \end{tikzpicture}%
+  }
+  \hspace{0.01574\PageHeight}
+  \inserttocsection\par
+}
+\setbeamercolor{section in toc}{fg=NPUBlue}
+\setbeamertemplate{section in toc}[customsquare]
+\setcounter{tocdepth}{1}
+
+% 目录页面
+\newcommand{\mytocpage}{
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=south, inner sep=0pt]
+                at (current page.south)
+                {\includegraphics[width=\paperwidth]{src/figure/toc_blue.jpg}};
+            \node[anchor=north west, inner sep=0pt]
+                at ([yshift=-0.15748\PageHeight, xshift=0.15498\PageHeight]current page.north west)
+                {\fontsize{0.06641\PageHeight}{0.07378\PageHeight}\bfseries\color{NPUBlue} 目录};
+        \end{tikzpicture}
+
+        \vspace{\dimexpr 1cm - \PageTop\relax}
+        {\fontsize{0.04796\PageHeight}{0.04796\PageHeight}\bfseries
+            \begin{multicols}{2}
+                \noindent\tableofcontents
+            \end{multicols}
+        }
+    \end{frame}
+}
+
+% ==============================================
+% 十三、章节自动过渡页
+% ==============================================
+\AtBeginSection[]{
+\begingroup
+\begin{frame}[noframenumbering,plain]
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south, inner sep=0pt]
+        at (current page.south)
+        {\includegraphics[width=\paperwidth]{src/figure/toc_blue.jpg}};
+\end{tikzpicture}
+
+\begin{columns}[c]
+% 左侧超大淡数字
+\begin{column}{0.25\textwidth}
+\centering
+\begin{tikzpicture}
+\node[
+    text=NPUBlue!12, % 淡透明蓝色数字
+    font=\bfseries,
+    scale=9
+]{\thesection};
+\end{tikzpicture}
+\end{column}
+
+% 右侧标题与标语
+\begin{column}{0.55\textwidth}
+\raggedleft
+% 章节大标题
+{\bfseries\LARGE\color{NPUDarkBlue} {\fontsize{38pt}{38pt} \insertsection }} \par
+\vspace{3mm}
+% 装饰横线
+{\color{NPUDarkBlue!70}\rule{0.8\linewidth}{2pt}}\par
+\vspace{3mm}
+% 底部标语
+{\ttfamily\small\color{black!40} 隐姓埋名，为国铸剑}
+\end{column}
+\end{columns}
+\vfill
+\end{frame}
+\endgroup
+}
